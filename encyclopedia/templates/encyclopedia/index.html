@@ -9,8 +9,9 @@
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+            <li> <a href="{% url 'WIKI:title' entry %}">{{ entry|capfirst }} </a> </li>
         {% endfor %}
     </ul>
 
 {% endblock %}
+

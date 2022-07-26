@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Page
+{% endblock %}
+
+
+
+
+
+{% block body %}
+    <h1>Your search Result for <q>{{ query }}</q> </h1>
+    {% if search_results %}
+    <ul>
+        {% for result in search_results %}
+            <li><a href="{% url 'WIKI:title' result|capfirst %}">{{ result|capfirst }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No results</p>
+    {% endif %}
+    <a href="{% url 'WIKI:index' %}"  >Go Back?</a>
+{% endblock %}
