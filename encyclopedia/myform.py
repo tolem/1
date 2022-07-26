@@ -15,7 +15,6 @@ class NewWikiForm(forms.Form):
 
 
 
-
 # Class for editing form content
 class EditWikiForm(forms.Form):
     entry_description = forms.CharField(label="\"Description (you can apply Markdown)\"", 

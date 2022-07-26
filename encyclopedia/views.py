@@ -39,17 +39,17 @@ def search(request):
             })
 
 
-        # If query entered, check if query is substring of an existing entry
+        # If queried, check if query is substring of an existing wiki
         saved_entries = [x.lower() for x in util.list_entries()]
         matching_entries = [s.lower() for s in saved_entries if query in s]
 
-        # If query perfectly matches an entry and it's the only entry
+        # checks if query perfectly matches a wiki
         if len(matching_entries) == 1 and query == matching_entries[0]:
             return render(request, "encyclopedia/entrypage.html", {
                 "title": query,
                 "content": util.converts_md_to_html(util.get_entry(query))
             })
-        # If query is not part of an existing entry or there are multiple possible entries
+        # validates If query is not part of an existing wiki
         else:
             print(f"testing {matching_entries}")
             return render(request, "encyclopedia/search.html", {
